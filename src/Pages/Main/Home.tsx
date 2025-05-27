@@ -36,7 +36,7 @@ const Home = () => {
         <main className="space-y-6">
           <h1 className="text-4xl font-bold border-b border-[#e0e0e0] pb-6">
             {getGreeting()}, <br />{" "}
-            <span className="text-primary font-light">John Doe</span>
+            <span className="text-primary font-light" contentEditable>John Doe</span>
           </h1>
           <div>
             <div className="space-y-6">
