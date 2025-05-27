@@ -12,18 +12,18 @@
   --foreground: #f9f9f9;
   --main: #03301D;
   --muted: #777;
-  --line: #d9d9d9;
+  --line: #e0e0e0;
 }
 
 .dark {
   --primary: #86EE02;
-  --tertiary: #03301D;
-  --secondary: #05482C ;
-  --background: #03301D ;
-  --foreground: #099058;
+  --tertiary: #86EE02;
+  --secondary: #212121 ;
+  --background: #121212 ;
+  --foreground: #313131;
   --main: #FFFFFF;
-  --muted: #ddd;
-  --line: #146B47;
+  --muted: #777;
+  --line: #414141;
 }
 
 @theme {
@@ -68,7 +68,7 @@ button,
 }
 
 .btn-primary {
-  @apply bg-primary text-white ;
+  @apply bg-primary text-white dark:text-[#212121] ;
 }
 
 .input {

@@ -1,5 +1,6 @@
 import { Bell, ChevronLeft, Settings } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ThemeToggle } from "../UI";
 
 const Header = () => {
   const location = useLocation();
@@ -13,12 +14,13 @@ const Header = () => {
         ) : (
           <button
             onClick={() => navigate(-1)}
-            className="h-10 w-10 rounded-full bg-primary/10"
+            className="h-10 w-10 rounded-full bg-primary/10 dark:text-primary"
           >
             <ChevronLeft />
           </button>
         )}
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <div className="h-10 w-10 center bg-primary/10 dark:text-primary rounded-full dark:bg-primary/10 relative">
             <Bell size={20} />
             <div className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></div>

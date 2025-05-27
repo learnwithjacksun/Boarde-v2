@@ -40,7 +40,7 @@ const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
           <h2 className="text-lg font-bold font-outfit">{title}</h2>
           <button
             onClick={onClose}
-            className="bg-foreground btn h-10 w-10 rounded-full"
+            className="bg-primary/10 dark:text-primary  btn h-10 w-10 rounded-full"
           >
             <X size={20} />
           </button>

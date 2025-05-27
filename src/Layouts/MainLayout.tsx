@@ -12,9 +12,11 @@ const MainLayout = ({ children, title, description }: MainLayoutProps) => {
       <Header />
       <div className="layout">
         {title && (
-          <div>
+          <div className="my-4">
             <h1 className="text-4xl font-bold">{title}</h1>
-            {description && <p className="text-sm font-light">{description}</p>}
+            {description && (
+              <p className="text-xl font-light text-primary">{description}</p>
+            )}
           </div>
         )}
         <div className="pb-40">{children}</div>
