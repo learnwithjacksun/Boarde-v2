@@ -3,3 +3,9 @@ interface ThemeStore {
     toggleTheme: () => void;
     fetchTheme: () => void;
 }
+
+interface Item {
+    id: string;
+    title: string;
+    category: string;
+}
