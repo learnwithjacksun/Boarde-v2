@@ -1,49 +1,75 @@
-import { useCountStore } from "@/Stores";
-import { ThemeToggle } from "@/Components/UI";
-import { ActionButtons, Libraries } from "@/Components/Main";
-import { Github } from "lucide-react";
-
-
+import { MainLayout } from "@/Layouts";
+import { formatDate } from "@/Utils/formatDate";
+import { getGreeting } from "@/Utils/greeting";
+import { ChevronRight, Ellipsis } from "lucide-react";
+import { Link } from "react-router-dom";
 const Home = () => {
-  const { count } = useCountStore();
+  const totalNotes = 0;
+  const totalTasks = 0;
+  const totalShoppingList = 0;
 
+  const stats = [
+    {
+      label: "Tasks",
+      value: totalTasks,
+      updatedAt: new Date(),
+      link: "/tasks",
+    },
+    {
+      label: "Shopping List",
+      value: totalShoppingList,
+      updatedAt: new Date(),
+      link: "/shopping-list",
+    },
+    {
+      label: "Notes",
+      value: totalNotes,
+      updatedAt: new Date(),
+      link: "/notes",
+    },
+    
+  ];
   return (
-    <div className="layout relative flex flex-col gap-2 min-h-[100dvh]">
-      <header className="w-full h-[60px] flex justify-between items-center">
-        <ThemeToggle />
-        <a
-          href="https://github.com/learnwithjacksun/jacksun-react-template"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary px-4 py-2 rounded-full gap-2"
-        >
-          <Github size={20} />
-          <span>Use Template</span>
-        </a>
-      </header>
-      <div className="center flex flex-col gap-4 text-center border-b border-line py-7">
-        <div className="center gap-2">
-          <img
-            src="/react.svg"
-            alt="logo"
-            width={80}
-            height={80}
-            className="hover:rotate-120 transition-all duration-300"
-          />
-          <div className="h-[80px] w-[80px] bg-secondary rounded-xl border border-line text-4xl font-sora font-bold flex items-center justify-center">{count}</div>
-        </div>
-        <div>
-          <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-purple-500 text-4xl md:text-5xl font-sora font-bold">Jacksun React Template </h1>
-          <p className="text-muted">
-            A template for building a React app with Tailwind CSS and TypeScript
-          </p>
-        </div>
+    <>
+      <MainLayout>
+        <main className="space-y-6">
+          <h1 className="text-4xl font-bold">
+            {getGreeting()}, <br />{" "}
+            <span className="text-primary font-light">John Doe</span>
+          </h1>
+          <div>
+            <div className="space-y-6">
+              {stats.map((x, y) => (
+                <div key={y} className="border-b border-line pb-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-md font-semibold">{x.label}</h3>
+                      <Ellipsis className="text-tertiary" />
+                    </div>
+                    <Link
+                      to={x.link}
+                      >
+                      <button className="p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-200">
+                        <ChevronRight />
+                      </button>
+                    </Link>
+                  </div>
 
-        <ActionButtons />
-      </div>
-
-      <Libraries />
-    </div>
+                  <div className="space-y-2">
+                    <div className="text-[#dedede] dark:text-primary/30 text-3xl font-bold">
+                      You have <span className="text-primary">{x.value}</span> {x.label}...
+                    </div>
+                    <p className="text-muted text-xs dark:text-primary/30">
+                      {formatDate(x.updatedAt)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </main>
+      </MainLayout>
+    </>
   );
 };
 

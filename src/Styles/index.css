@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --primary: #121212;
-  --secondary: #fefefe;
-  --background: #f9f9f9;
+  --primary: #03301D;
+  --tertiary: #86EE02;
+  --secondary: #f9f9f9;
+  --background: #fefefe;
   --foreground: #f9f9f9;
-  --main: #444444;
+  --main: #03301D;
   --muted: #777;
-  --line: #ededed;
+  --line: #d9d9d9;
 }
 
 .dark {
-  --primary: #fefefe;
-  --secondary: #212121 ;
-  --background: #121212 ;
-  --foreground: #313131;
+  --primary: #86EE02;
+  --tertiary: #03301D;
+  --secondary: #05482C ;
+  --background: #03301D ;
+  --foreground: #099058;
   --main: #FFFFFF;
-  --muted: #999999;
-  --line: #333;
+  --muted: #ddd;
+  --line: #146B47;
 }
 
 @theme {
-  --font-sans: 'Instrument Sans', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
   --font-sora: 'Sora', sans-serif;
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -34,6 +36,7 @@
   --color-main: var(--main);
   --color-muted: var(--muted);
   --color-line: var(--line);
+  --color-tertiary: var(--tertiary);
 }
 
 * {
@@ -51,6 +54,9 @@ html {
 .layout {
   @apply max-w-[90%] md:max-w-[700px] mx-auto;
 }
+.layout-2 {
+  @apply max-w-full md:max-w-[700px] mx-auto;
+}
 
 .center {
   @apply flex items-center justify-center;
@@ -58,15 +64,15 @@ html {
 
 button,
 .btn {
-  @apply text-sm cursor-pointer font-semibold font-sora flex items-center justify-center gap-2 disabled:opacity-50;
+  @apply  cursor-pointer font-medium flex items-center justify-center gap-2 disabled:opacity-50;
 }
 
 .btn-primary {
-  @apply bg-primary text-white dark:text-black;
+  @apply bg-primary text-white ;
 }
 
 .input {
-  @apply bg-foreground text-sm border border-line rounded-lg px-4 h-10 font-light focus:outline-none focus:border-primary invalid:border-red-500;
+  @apply bg-secondary text-sm border border-line rounded-lg px-4 h-10 font-light focus:outline-none focus:border-primary invalid:border-red-500;
 }
 .message {
   @apply bg-foreground text-sm border border-line rounded-lg px-4 py-2 font-light focus:outline-none focus:border-primary invalid:border-red-500;
