@@ -1,7 +1,7 @@
 import { MainLayout } from "@/Layouts";
 import { useAuthStore, useItemsStore } from "@/Stores";
 import { getGreeting } from "@/Utils/greeting";
-import { Box, ChevronRight, Ellipsis, Trash2 } from "lucide-react";
+import { Box, ChevronRight, DollarSign, Ellipsis, Image, ListCheck, Trash2 } from "lucide-react";
 import { Link, Navigate } from "react-router-dom";
 const Home = () => {
   const { name } = useAuthStore();
@@ -42,7 +42,7 @@ const Home = () => {
                     </div>
 
                     <span
-                      className={`text-xs capitalize rounded-full font-medium px-4 py-1 ${
+                      className={`text-xs capitalize rounded-full center gap-1 font-medium p-2 px-3 ${
                         x.category === "todo"
                           ? "bg-yellow-600/10 text-yellow-600"
                           : x.category === "budget"
@@ -50,13 +50,20 @@ const Home = () => {
                           : "bg-blue-500/10 text-blue-500"
                       }`}
                     >
+                      {
+                        x.category === "todo"
+                        ? <ListCheck size={16}/>
+                        : x.category === "budget"
+                        ? <DollarSign size={16}/>
+                        : <Image size={16}/>
+                      }
                       {x.category}
                     </span>
                   </div>
 
                   <div className="text-[#dedede] dark:text-muted text-2xl font-bold">
                     There are <span className="text-primary">{0}</span>{" "}
-                    items in {x.title}...
+                    items in here...
                   </div>
                   <div className="flex items-center justify-between">
                     <button onClick={() => deleteItem(x)} className="h-12 w-12 center bg-red-500/10 rounded-full text-red-500 transition-colors duration-200">
