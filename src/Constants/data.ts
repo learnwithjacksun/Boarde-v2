@@ -1,4 +1,4 @@
-import { CheckCheck, NotebookPen, ShoppingCart } from "lucide-react";
+import { Home, Settings } from "lucide-react";
 
 export const libraries = [
   "Zustand",
@@ -16,18 +16,15 @@ export const libraries = [
 
 export const menuItems = [
   {
-    label: "Tasks",
-    icon: CheckCheck,
-    href: "/tasks",
+    label: "Home",
+    icon: Home,
+    href: "/home",
   },
+
+ 
   {
-    label: "Shopping",
-    icon: ShoppingCart,
-    href: "/shopping",
-  },
-  {
-    label: "Notes",
-    icon: NotebookPen,
-    href: "/notes",
+    label: "Settings",
+    icon: Settings,
+    href: "/settings",
   },
 ];
